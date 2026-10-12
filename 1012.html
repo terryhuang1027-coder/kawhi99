@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>1012 CSS-漸層與動畫</title>
+            <style>
+                div{
+                    witdh: 200px;
+                    height: 100px;
+                    margin-bottom: 10px;
+                }
+                #d1{
+                    background-image:linear-gradient(rgb(34, 31, 194),orange);/*線性漸層*/
+                }
+                #d2{
+                    background-image:linear-gradient(90deg,rgb(199, 18, 42),rgb(175, 127, 39),rgb(133, 133, 31),rgb(15, 219, 15),blue,indigo,purple);/*線性漸層*/
+                    witdh: 400px;
+                    height: 50px;
+                }
+                #d3{/* 輻射漸層 */
+                    background-image:radial-gradient(rgb(180, 178, 187),rgb(165, 59, 207),yellow,rgb(89, 0, 255));
+                }
+                #d4{/* 預設會隨容器改變形狀 第一參數circle可強制為圓形 */
+                    background-image:radial-gradient(circle,rgb(34, 31, 194),orange);/*線性漸層*/
+                }
+                #d5{/*圓錐漸層*/
+                    background-image:conic-gradient(rgb(16, 57, 190),rgb(255, 153, 0));/*線性漸層*/
+                }
+                #d6{/*第一參數可調整起始位置*/
+                    background-image:conic-gradient(from 90deg,rgb(16, 57, 190),rgb(255, 153, 0));/*線性漸層*/
+                }
+                /*以上是基本語法 以下是小小進階
+                  顏色後面加上百分比代表位置 起點是0 終點是100(%)
+                */
+                #d7{
+                    background-image:linear-gradient(90deg,rgb(34, 31, 194) 30%,orange 100%,green 30%);/*線性漸層*/
+                }
+                #d8{
+                    background-image:repeating-linear-gradient(45deg,rgb(38, 35, 160) 30%,orange 66%);/*線性漸層*/
+                }
+                #d9{
+                    background-image:radial-gradient(circle,blue 30%,orange 35%,green);
+                }
+                /*重複的重點在間隔(位置的差距) 頭尾顏色相同會比較自然*/
+                #d10{
+                    background-image:repeating-radial-gradient(circle,blue 30% ,red 35%,green 40%);
+                }
+                #d11{
+                    background-image:repeating-linear-gradient(125deg,blue 30% ,red 35%,green 40%);
+                }
+                #d12{
+                    background-image:repeating-conic-gradient(blue 30% ,red 35%,green 40%);
+                }
+                /*動畫*/
+                @keyframes k1 {
+                    0%{background-image:linear-gradient(90deg,red,white 50%,blue);}
+                    8%{background-image:linear-gradient(90deg,red,white 40%,blue);}
+                    16%{background-image:linear-gradient(90deg,red,white 30%,blue);}
+                    25%{background-image:linear-gradient(90deg,red,white 20%,blue);}
+                    33%{background-image:linear-gradient(90deg,red,white 30%,blue);}
+                    42%{background-image:linear-gradient(90deg,red,white 40%,blue);}
+                    50%{background-image:linear-gradient(90deg,red,white 50%,blue);}
+                    58%{background-image:linear-gradient(90deg,red,white 60%,blue);}
+                    67%{background-image:linear-gradient(90deg,red,white 70%,blue);}
+                    75%{background-image:linear-gradient(90deg,red,white 80%,blue);}
+                    83%{background-image:linear-gradient(90deg,red,white 70%,blue);}
+                    92%{background-image:linear-gradient(90deg,red,white 60%,blue);}
+                    100%{background-image:linear-gradient(90deg,red,white 50%,blue);}
+
+                }
+                #a1{/*動畫名稱 播多久 播幾次 線性速度*/
+                    animation: k1 1s infinite linear;
+                }
+                @keyframes k2 {
+                    0%{background-image: linear-gradient(0deg,blue,green);}
+                    8%{background-image: linear-gradient(30deg,blue,green);}
+                    16%{background-image: linear-gradient(60deg,blue,green);}
+                    25%{background-image: linear-gradient(90deg,blue,green);}
+                    33%{background-image: linear-gradient(120deg,blue,green);}
+                    42%{background-image: linear-gradient(150deg,blue,green);}
+                    50%{background-image: linear-gradient(180deg,blue,green);}
+                    58%{background-image: linear-gradient(210deg,blue,green);}
+                    67%{background-image: linear-gradient(240deg,blue,green);}
+                    75%{background-image: linear-gradient(270deg,blue,green);}
+                    83%{background-image: linear-gradient(300deg,blue,green);}
+                    92%{background-image: linear-gradient(330deg,blue,green);}
+                    100%{background-image: linear-gradient(360deg,blue,green);}
+                }
+                #a2{
+                    animation: k2 0.1s infinite linear;
+                }
+                @keyframes k3 {
+                    0%{background-image: radial-gradient(125deg,blue,green 50%,red);}
+                    25%{background-image: radial-gradient(125deg,blue,green 60%,red);}
+                    50%{background-image: radial-gradient(circle,blue,green 70%,red);}
+                    75%{background-image: radial-gradient(circle,blue,green 60%,red);}
+                    100%{background-image: radial-gradient(circle,blue,green 50%,red);}
+                }
+                #a3{
+                    animation: k3 0.01s infinite linear;
+                }
+                @keyframes k4 {
+                    0%{background-image: radial-gradient(circle,blue,green 60%,red);}
+                    50%{background-image: radial-gradient(circle,blue,green 70%,red);}
+                    100%{background-image: radial-gradient(circle,blue,green 60%,red);}
+                }
+                #d4{
+                    animation: k4 0.01s infinite linear;
+                }
+            </style>
+            </head>
+        <body>
+            <div id="d1"></div>
+            <div id="d2"></div>
+            <div id="d3"></div>
+            <div id="d4"></div>
+            <div id="d5"></div>
+            <div id="d6"></div>
+            <hr>
+            <div id="d7"></div>
+            <div id="d8"></div>
+            <div id="d9"></div>
+            <div id="d10"></div>
+            <div id="d11"></div>
+            <div id="d12"></div>
+            <hr>
+            <div id="a1"></div>
+            <div id="a2"></div>
+            <div id="a3"></div>
+            <div id="a4"></div>
+        </body>
+</html>
