@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1019-2-變形與轉變與陰影</title>
+        <style>
+            div{
+                width: 100px;
+                height: 50px;
+                border: 2px solid black;
+                margin:  50px;
+                display: inline-block;
+            }
+            #d1{
+                transform: rotate(45deg); /*順時針旋轉*/
+            }
+            #d2{
+                transform: rotate(-45deg); /*逆時針旋轉*/
+            }
+            #d3{
+                transform: scale(0.5,1.2); /*倍率*/
+            }
+            #d4{
+                transform: translate(20px,10px); /*位移*/
+            }
+            #d5{
+                transition: transform 2s;
+            }
+            #d5:hover{
+                transform: translate(50px) rotate(45deg) ; /*先位移再旋轉*/
+            }
+            #d6:hover{
+                transform: rotate(45deg) translate(50px) ; /*先旋轉再位移*/
+            }
+            #d6{
+                transition: transform 2s;
+            }
+            #d7{
+                background-color: rgb(170, 23, 133);
+                transition:  background-color 2s,width 1s;
+            }
+            #d7:hover{
+                background-color: rgb(196, 81, 14);
+                width: 520px;
+            }
+            #s1{
+                box-shadow: 10px 10px black; /*前兩個參數 位移*/
+            }
+            #s2{
+                box-shadow: 5px 5px 10px black; /*第三個參數 柔邊*/
+            }
+            #s3{
+                box-shadow: 0px 0px 5px 10px rgb(27, 16, 170); /*第四個參數 擴大程度*/
+            }
+            #s4{
+                font-size: 100px;
+                text-shadow: 5px 5px 10px red;
+            }
+            #s5{
+                font-size: 100px;
+                color: white;
+                text-shadow: 0px 0px 10px rgb(0, 26, 255);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d1"></div>
+        <div id="d2"></div>
+        <div id="d3"></div>
+        <div id="d4"></div>
+        <div id="d5"></div>
+        <div id="d6"></div>
+        <div id="d7"></div>
+        <hr>
+        <div id="s1"></div>
+        <div id="s2"></div>
+        <div id="s3"></div>
+        <p id="s4">67</p>
+        <p id="s5">67</p>
+    </body>
+</html>
